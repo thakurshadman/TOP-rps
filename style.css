@@ -1,38 +1,63 @@
 *{
-    background-color: navy;
     color: aliceblue;
 }
-
+body{background-color: black;}
 h1,h3{
     text-align: center;
+    padding: 20px;
 }
 
 .rps-container{
+    padding: 10px;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
 }
 
-#rock,#paper,#scissors{
+button{
+    position: relative;
     width: 25%;
     aspect-ratio: 1;
     background-size:55%;
     background-repeat: no-repeat;
     background-position: center;
-    background-color: transparent;
-    border-width: 10px;
-    border-color: black;
-    border-style: double;
+    border-style: solid;
     border-radius: 360px;
-    background-color: aliceblue;
+    background-color: wheat;
 }
-#rock{
+.rock{
     background-image: url('assets/rock.png');
 }
-#paper{
+.paper{
     background-image: url('assets/paper.jpeg');
 }
 
-#scissors{
+.scissors{
     background-image: url('assets/scissors.png');
+}
+
+
+.glow::before, .glow::after{
+    content: '';
+    position: absolute;
+    left: -10px;
+    top: -10px;
+    background:  linear-gradient(-45deg, #00ff66,  #00ffff,  #ff00ff, #ff0099, #899fff);
+    background-size: 400%;
+    width: calc(100% + 20px);
+    aspect-ratio: 1;
+    z-index: -1;
+    animation: change 20s linear infinite;
+    border-radius: 360px;
+}
+
+@keyframes change{
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+}
+
+.glow::after{
+    filter:    blur(10px);
+    opacity: .5;
 }
