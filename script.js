@@ -54,7 +54,7 @@ const scoreBoard = {
 User:0, 
 Computer:0
 };
-console.log("Win 5 time to become the champ!");
+console.log("Win 5 times to become the champ!");
 
 while(scoreBoard.Computer < 5 && scoreBoard.User < 5){
     const computer = computerPlay();
