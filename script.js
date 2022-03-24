@@ -1,89 +1,85 @@
-var r = document.getElementById("r");
-var btn = document.querySelector(".rock");
-var rot = 1;
-let scale = 1;
-btn.addEventListener("mousedown", function() {
-    r.style = `transform: rotate(${rot}turn) scale(${scale + .3})`;
-    rot += 1;
-});
-btn.addEventListener("mouseup", function() {
-    r.style = `transform: rotate(${rot}turn) scale(${scale})`;
-});
-
-
-function rotate(thing_to_rotate,rotation_amount){
-    thing_to_rotate.style = `transform:rotate(${rotation_amout})`
-}
-
 function computerPlay() {
-    const rps = ['rock','paper','scissors'];
+    const rps = ['rock', 'paper', 'scissors'];
     rand_choice_idx = Math.floor(Math.random() * 3);
     return rps[rand_choice_idx];
 }
 
-function userPlay(){
-    const users_choice = window.prompt('MAKE YOUR CHOICE! - ROCK, PAPER OR SCISSORS?: ');
-    return users_choice.toLowerCase();
+function userPlay(button) {
+    return button.id;
 }
 
-function checkWhoWon(user,computer,scoreBoard){
-    if (user === computer){
-        console.log('DRAW! Try Again!');
+function checkWhoWon(user, computer, scoreBoard) {
+    if (user === computer) {
+        return 'DRAW!';
     }
-    else if (user === 'rock' && computer === 'scissors'){
-        console.log('Nice! ROCK beats SCISSORS!');
-        updateScore(scoreBoard,"User");
-    }
-    else if (user === 'scissors' && computer === 'paper'){
-        console.log('Alright! SCISSORS beat PAPER!');
+    else if (user === 'rock' && computer === 'scissors') {
         updateScore(scoreBoard, "User");
+        return('Nice! ROCK beats SCISSORS!');
     }
-    else if (user === 'paper' && computer === 'rock'){
-        console.log('Splendid choice! PAPER beats ROCK!');
-        updateScore(scoreBoard,"User");
+    else if (user === 'scissors' && computer === 'paper') {
+        updateScore(scoreBoard, "User");
+        return('Alright! SCISSORS beat PAPER!');
     }
-    else{
-        console.log(`Oh no, try again next time! ${computer.toUpperCase()} beats ${user.toUpperCase()} :(`);
-        updateScore(scoreBoard,"Computer");
+    else if (user === 'paper' && computer === 'rock') {
+        updateScore(scoreBoard, "User");
+        return('Splendid choice! PAPER beats ROCK!');
+    }
+    else {
+        updateScore(scoreBoard, "Computer");
+        return(`Oh no, try again next time! ${computer.toUpperCase()} beats ${user.toUpperCase()} :(`);
     }
 
 }
 
-function usersInputIsValid(input){
-    return (['rock','paper','scissors'].includes(input));
+function usersInputIsValid(input) {
+    return (['rock', 'paper', 'scissors'].includes(input));
 }
 
-function updateScore(scoreBoard,who) {
+function updateScore(scoreBoard, who) {
     scoreBoard[who] += 1;
 }
 
-function declareTheChampion(scoreBoard){
-    if (scoreBoard.Computer == 5){
+function declareTheChampion(scoreBoard) {
+    if (scoreBoard.Computer == 5) {
         console.log("You Lose! Better luck next time.");
     }
-    else{
+    else {
         console.log("Congratulations! You are the Rock, Paper, Scissors champion!");
     }
 }
 
+var rot = 1;
+const scale = 1;
+
+const btns = document.querySelectorAll('.btn')
+const userChoiceImage = document.getElementById('user');
+const comChoiceImage = document.getElementById('com');
+const remarkLabel = document.querySelector('#choice-remarks h4');
+const userScoreLabel = document.getElementById('usr-score');
+const comScoreLabel = document.getElementById('com-score');
 
 const scoreBoard = {
-User:0, 
-Computer:0
+    User: 0,
+    Computer: 0
 };
-console.log("Win 5 times to become the champ!");
 
-while(scoreBoard.Computer < 5 && scoreBoard.User < 5){
-    const computer = computerPlay();
-    const user = userPlay();
+btns.forEach((btn) => {
+    btn.addEventListener("mousedown", function () {
+        btn.parentElement.style = `transform: rotate(${rot}turn) scale(${scale + .3})`;
+        rot += 1;
+    });
+    
+    btn.addEventListener("mouseup", function(){
+        btn.parentElement.style = `transform: rotate(${rot}turn) scale(${scale})`;
+        const user = userPlay(btn);
+        const com = computerPlay();
+        userChoiceImage.style.backgroundImage = `url('assets/${user}.png')`
+        comChoiceImage.style.backgroundImage = `url('assets/${com}.png')`
+        remark = checkWhoWon(user,com,scoreBoard);
+        remarkLabel.textContent = remark;
+        userScoreLabel.textContent = `USR: ${scoreBoard['User']}`;
+        comScoreLabel.textContent = `COM: ${scoreBoard['Computer']}`;
+    });
+});
 
-    if(usersInputIsValid(user)){
-        checkWhoWon(user,computer,scoreBoard);
-        console.log(scoreBoard);
-    }
-    else{
-        console.log('INVALID INPUT! Spelling error?')
-    }
-}
-declareTheChampion(scoreBoard);
 

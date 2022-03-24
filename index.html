@@ -9,25 +9,26 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
+<div class="win-loss"><h1>You Lose!</h1><button id="replay">PLAY AGAIN!</button></div>
 <body>
     <h1>Rock Paper Scissors</h1>
     <div class="scoreboard-container">    
-        <ul class="score user">
-            <li class="q user"></li>
-            <li>USR: 0</li>
+        <ul class="score">
+            <li class="q glow" id="user"></li>
+            <li id = 'usr-score'>USR: 0</li>
         </ul>
         <div id="choice-remarks"><h4>Make your choice but remember to choose wisely!</h4></div>
-        <ul class="score computer">
-            <li class="q pc"></li>
-            <li>COM: 0</li>
+        <ul class="score">
+            <li class="q glow" id="com"></li>
+            <li id="com-score">COM: 0</li>
         </ul>
     </div>
     <div class="rps-container">
-        <div id="r"><button class="rock glow"></button></div>
-        <div id="p"><button class="paper glow"></button></div>
-        <div id="s"><button class="scissors glow"></button></div>
+        <div id="r"><button class="btn glow" id="rock"></button></div>
+        <div id="p"><button class="btn glow" id="paper"></button></div>
+        <div id="s"><button class="btn glow" id="scissors"></button></div>
     </div>
-    <h3>First To Win 5 Game Will Be Crowned As Champion</h3>
+    <h3>First To Win 5 Games Will Be Crowned Champion</h3>
     <div></div>
 </body>
 <script src="script.js"></script>

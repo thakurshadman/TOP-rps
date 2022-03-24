@@ -37,12 +37,8 @@ li{
     text-align: center;
 }
 .q{
-    background-image: url('assets/qmark.png');
-    width: 100%;
-    aspect-ratio: 1;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
+    background-image: url('assets/q.png');
+    padding: 0;
 }
 .rps-container{
     padding: 20px;
@@ -57,11 +53,11 @@ li{
     transition-duration: 0.25s;
 }
 
-button{
+.btn,.q{
     position: relative;
     width: 100%;
     aspect-ratio: 1;
-    background-size:55%;
+    background-size:65%;
     background-repeat: no-repeat;
     background-position: center;
     border-style: solid;
@@ -71,14 +67,14 @@ button{
     background-color: wheat;
 }
 
-.rock{
+#rock{
     background-image: url('assets/rock.png');
 }
-.paper{
-    background-image: url('assets/paper.jpeg');
+#paper{
+    background-image: url('assets/paper.png');
 }
 
-.scissors{
+#scissors{
     background-image: url('assets/scissors.png');
 }
 
@@ -108,7 +104,36 @@ button{
     opacity: .5;
 }
 
-button:hover{
+.btn:hover{
     background-color: transparent;
     border-color: whitesmoke;
+}
+.win-loss{
+    transform: scale(0);
+}
+.win-loss:active{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    position:fixed;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    aspect-ratio: 16/9;
+    z-index: 1;
+    background-color: #0f0f0f;
+    transform: translate(-50%, -50%) scale(1);
+    border-radius: 30px;
+    border-width: 20px;
+    border-style: double;
+}
+
+#replay:active{
+    position: relative;
+    margin-left: 25%;
+    margin-right: 25%;
+    height: 50px;
+    color: black;
+    z-index: 1;
 }
