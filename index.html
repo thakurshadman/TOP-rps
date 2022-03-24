@@ -1,13 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RoShamBo</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+<div class="win-loss"><h1>You Lose!</h1><button id="replay">PLAY AGAIN!</button></div>
 <body>
-    
+    <h1>Rock Paper Scissors</h1>
+    <div class="scoreboard-container">    
+        <ul class="score">
+            <li class="q glow" id="user"></li>
+            <li id = 'usr-score'>USR: 0</li>
+        </ul>
+        <div id="choice-remarks"><h4>Make your choice but remember to choose wisely!</h4></div>
+        <ul class="score">
+            <li class="q glow" id="com"></li>
+            <li id="com-score">COM: 0</li>
+        </ul>
+    </div>
+    <div class="rps-container">
+        <div id="r"><button class="btn glow" id="rock"></button></div>
+        <div id="p"><button class="btn glow" id="paper"></button></div>
+        <div id="s"><button class="btn glow" id="scissors"></button></div>
+    </div>
+    <h3>First To Win 5 Games Will Be Crowned Champion</h3>
+    <div></div>
 </body>
 <script src="script.js"></script>
 </html>

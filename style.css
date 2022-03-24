@@ -1,0 +1,139 @@
+*{
+    color: aliceblue;
+    margin: 0;
+    padding: 0;
+}
+body{background-color: black;}
+h1,h3{
+    text-align: center;
+    padding: 10px;
+}
+.scoreboard-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+li{
+    padding-top: 15px;
+    padding-bottom: 15px;
+    size: 100%;
+    text-align: center;
+    font-size: 20px;
+    
+}
+.score{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    list-style: none;
+    font-weight: 900;
+    width: 13%;
+}
+#choice-remarks{
+    width: 26%;
+    text-align: center;
+}
+.q{
+    background-image: url('assets/q.png');
+    padding: 0;
+}
+.rps-container{
+    padding: 20px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#r,#p,#s{
+    width: 20%;
+    transition: all 1s ease-in-out;
+    transition-duration: 0.25s;
+}
+
+.btn,.q{
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1;
+    background-size:65%;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-style: solid;
+    border-color: rgb(0, 0, 0);
+    border-width: 5px;
+    border-radius: 360px;
+    background-color: wheat;
+}
+
+#rock{
+    background-image: url('assets/rock.png');
+}
+#paper{
+    background-image: url('assets/paper.png');
+}
+
+#scissors{
+    background-image: url('assets/scissors.png');
+}
+
+
+.glow::before, .glow::after{
+    content: '';
+    position: absolute;
+    left:calc(-25px / 2);
+    top: calc(-25px / 2);
+    background:  linear-gradient(-45deg, #00ff66,  #00ffff,  #ff00ff, #ff0099, #899fff);
+    background-size: 400%;
+    width: calc(100% + 25px);
+    aspect-ratio: 1;
+    z-index: -5;
+    animation: change 20s linear infinite;
+    border-radius: 360px;
+}
+
+@keyframes change{
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+}
+
+.glow::after{
+    filter:    blur(10px);
+    opacity: .5;
+}
+
+.btn:hover{
+    background-color: transparent;
+    border-color: whitesmoke;
+}
+.win-loss{
+    transform: scale(0);
+}
+.win-loss:active{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    position:fixed;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    aspect-ratio: 16/9;
+    z-index: 1;
+    background-color: #0f0f0f;
+    transform: translate(-50%, -50%) scale(1);
+    border-radius: 30px;
+    border-width: 20px;
+    border-style: double;
+}
+
+#replay:active{
+    position: relative;
+    margin-left: 25%;
+    margin-right: 25%;
+    height: 50px;
+    color: black;
+    z-index: 1;
+}
