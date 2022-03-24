@@ -11,12 +11,24 @@
 
 <body>
     <h1>Rock Paper Scissors</h1>
-    <h3>First To 5 Win!</h3>
+    <div class="scoreboard-container">    
+        <ul class="score user">
+            <li class="q user"></li>
+            <li>USR: 0</li>
+        </ul>
+        <div id="choice-remarks"><h4>Make your choice but remember to choose wisely!</h4></div>
+        <ul class="score computer">
+            <li class="q pc"></li>
+            <li>COM: 0</li>
+        </ul>
+    </div>
     <div class="rps-container">
         <div id="r"><button class="rock glow"></button></div>
         <div id="p"><button class="paper glow"></button></div>
         <div id="s"><button class="scissors glow"></button></div>
     </div>
+    <h3>First To Win 5 Game Will Be Crowned As Champion</h3>
+    <div></div>
 </body>
 <script src="script.js"></script>
 </html>
