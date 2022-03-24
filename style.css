@@ -14,17 +14,25 @@ h1,h3{
     align-items: center;
 }
 
+#r,#p,#s{
+    width: 25%;
+    transition: all 1s ease-in-out;
+}
+
 button{
     position: relative;
-    width: 25%;
+    width: 100%;
     aspect-ratio: 1;
     background-size:55%;
     background-repeat: no-repeat;
     background-position: center;
     border-style: solid;
+    border-color: rgb(0, 0, 0);
+    border-width: 5px;
     border-radius: 360px;
     background-color: wheat;
 }
+
 .rock{
     background-image: url('assets/rock.png');
 }
@@ -40,13 +48,13 @@ button{
 .glow::before, .glow::after{
     content: '';
     position: absolute;
-    left: -10px;
-    top: -10px;
+    left:calc(-25px / 2);
+    top: calc(-25px / 2);
     background:  linear-gradient(-45deg, #00ff66,  #00ffff,  #ff00ff, #ff0099, #899fff);
     background-size: 400%;
-    width: calc(100% + 20px);
+    width: calc(100% + 25px);
     aspect-ratio: 1;
-    z-index: -1;
+    z-index: -5;
     animation: change 20s linear infinite;
     border-radius: 360px;
 }
@@ -61,3 +69,4 @@ button{
     filter:    blur(10px);
     opacity: .5;
 }
+

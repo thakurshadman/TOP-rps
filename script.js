@@ -1,3 +1,12 @@
+var r = document.getElementById("r");
+var btn = document.querySelector(".rock");
+var rot = 1;
+
+btn.addEventListener("click", function() {
+  r.style = `transform: rotate(${rot}turn)`;
+  rot += 1;
+});
+
 function computerPlay() {
     const rps = ['rock','paper','scissors'];
     rand_choice_idx = Math.floor(Math.random() * 3);
