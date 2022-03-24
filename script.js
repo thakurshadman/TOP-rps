@@ -1,11 +1,19 @@
 var r = document.getElementById("r");
 var btn = document.querySelector(".rock");
 var rot = 1;
-
-btn.addEventListener("click", function() {
-  r.style = `transform: rotate(${rot}turn)`;
-  rot += 1;
+let scale = 1;
+btn.addEventListener("mousedown", function() {
+    r.style = `transform: rotate(${rot}turn) scale(${scale + .3})`;
+    rot += 1;
 });
+btn.addEventListener("mouseup", function() {
+    r.style = `transform: rotate(${rot}turn) scale(${scale})`;
+});
+
+
+function rotate(thing_to_rotate,rotation_amount){
+    thing_to_rotate.style = `transform:rotate(${rotation_amout})`
+}
 
 function computerPlay() {
     const rps = ['rock','paper','scissors'];
